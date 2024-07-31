@@ -1,4 +1,4 @@
-# JALIN - Project Documentation
+# JALIN - Project Alert System
 
 Analysis - Elaborate your way to work out the alert.
 ```
@@ -10,7 +10,7 @@ There is condition of alert:
 - ex: there are 120 failed transactions between now and (now-5 minutes) by telegram automatically.
 ```
 ---
-# Technical Requirement Documentation for Alert System
+# Technical Requirement Documentation
 
 ## System Overview
 The proposed alert system is designed to monitor transaction statuses from a large database with 300 million records and an insertion rate of 40 transactions per second. 
