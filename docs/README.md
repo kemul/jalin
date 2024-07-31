@@ -4,9 +4,9 @@ Welcome to the project documentation.
 
 ## Table of Contents
 
-- [Mastered Skill](docs/mastered-skill.md)
-- [Alert](docs/alert.md)
-- [Report](docs/report.md)
-- [Read File](docs/read-file.md)
-- [PL-SQL](docs/pl-sql.md)
-- [Reading File - Java Code](docs/java-reading.md)
+- [Mastered Skill](mastered-skill.md)
+- [Alert](alert.md)
+- [Report](report.md)
+- [Read File](read-file.md)
+- [PL-SQL](pl-sql.md)
+- [Reading File - Java Code](java-reading.md)
