@@ -1,4 +1,4 @@
-# Project Task  Documentation for Alert System
+# Project Task for Alert System
 
 ## Project Tasks
 - [ ] Database optimization for high insert rate (Partition Table, Add Index, etc).

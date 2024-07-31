@@ -1,5 +1,3 @@
-# Installation Instructions Documentation for Alert System
-
 # Installation Instructions for Alert System
 
 ## Prerequisites
