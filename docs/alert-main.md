@@ -5,7 +5,9 @@ Analysis - Elaborate your way to work out the alert.
 Given a transactional table that has 300 million of records and insert rate of 40 tps (transaction/second). The transactions status varied from success, failed, decline, and suspect.
 
 There is condition of alert:
-- within 5 minutes, if the sum of failed transactions > 100 records, send alert to officer on duty that tells - ex: there are 120 failed transactions between now and (now-5 minutes) by telegram automatically.
+- within 5 minutes, if the sum of failed transactions > 100 records, send alert to officer on duty that tells 
+
+- ex: there are 120 failed transactions between now and (now-5 minutes) by telegram automatically.
 ```
 ---
 # Technical Requirement Documentation for Alert System
@@ -19,9 +21,9 @@ The system requires real-time data processing capabilities, possibly utilizing e
 
 
 ## System Requirements
-- **Transactional Database**: Robust database capable of handling high insert rates.
-- **Monitoring and Alerting**: New Relic setup for real-time transaction monitoring.
-- **Notification**: PagerDuty On-Call for dispatching alerts.
+- **Scalable Database Infrastructure**: Capable of handling high transaction volumes with robust performance.
+- **Real-Time Monitoring and Analysis**: monitor transactions and manage alerts.
+- **Flexible Notification System**: notification system capable of sending alerts through configured channels.
 
 ### Workflow:
 1. **Transaction Processing**: Transactions are processed and logged into the database.
@@ -120,7 +122,7 @@ sequenceDiagram
    - PagerDuty then notifies the on-call personnel to respond to the alert.
    - If the threshold is not met, New Relic continues its monitoring process.
 
-Option 2 more scalable if need to extend another channel such as Whatsapp, etc
+Notes : Option 2 more scalable if need to extend another channel such as Whatsapp, etc
 
 ## Whats Next
 - [Installation Instructions (II)](alert-installation.md)
