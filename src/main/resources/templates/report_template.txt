@@ -1,0 +1,12 @@
+KODE CLIENT : %s     LAPORAN : TRANSAKSI PEMBAYARAN BERHASIL
+KODE REPORT : %s    TANGGAL : %s
+---------------------------------------------------------------------
+%-10s %-8s %-10s %-15s %-15s %-15s
+---------------------------------------------------------------------
+%s
+---------------------------------------------------------------------
+* * * SUMMARY TOTAL * * *
+TOTAL TRANSAKSI         = %d
+TOTAL NOMINAL TAGIHAN   = RP %.2f
+TOTAL ADMIN FEE         = RP %.2f
+TOTAL NOMINAL TRANSAKSI = RP %.2f
