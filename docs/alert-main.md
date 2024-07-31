@@ -9,8 +9,20 @@ There is condition of alert:
 
 - ex: there are 120 failed transactions between now and (now-5 minutes) by telegram automatically.
 ```
+## Table of Contents
+- [Project Overview](#project-overview)
+    - [System Overview](#project-overview)
+    - [System Requirements](#project-overview)
+        - [Workflow](#project-overview)
+        - [Alert Mechanism](#project-overview)
+        - [Additional Considerations](#project-overview)
+- [Technical Requirement Documentation](#project-overview)
+    - [High-Level Design](#project-overview)
+    - [Sequence Diagram](#project-overview)
+- [Installation Instructions](#project-overview)
+- [Project Task](#project-overview)
 ---
-# Technical Requirement Documentation
+# Project Overview
 
 ## System Overview
 The proposed alert system is designed to monitor transaction statuses from a large database with 300 million records and an insertion rate of 40 transactions per second. 
@@ -40,6 +52,8 @@ The system requires real-time data processing capabilities, possibly utilizing e
 - **Security**: Ensure all data transmissions are encrypted.
 - **Performance**: The system must handle up to 40 transactions per second without lag.
 - **Scalability**: Capable of scaling to accommodate growth in transaction volume.
+
+# Technical Requirement Documentation
 
 ## High-Level Design
 
@@ -124,6 +138,60 @@ sequenceDiagram
 
 Notes : Option 2 more scalable if need to extend another channel such as Whatsapp, etc
 
-## Whats Next
-- [Installation Instructions (II)](alert-installation.md)
-- [Project Task File](alert-task.md)
+# Installation Instructions
+
+## Prerequisites
+- Ensure the transactional database is already set up with appropriate schemas.
+- Verify access to New Relic and PagerDuty accounts.
+
+## Step-by-Step Installation
+1. **Database Configuration**:
+   - Configure the database to handle high transaction rates.
+   - Ensure logging is enabled for transaction status updates.
+
+2. **New Relic Setup**:
+   - Install and configure New Relic agents on the database servers.
+   - Set up dashboards and alert conditions for failed transaction monitoring.
+   - SetUp Query NewRelic for this case : 
+    ```
+    SELECT count(*) FROM Transaction WHERE status = 'failed' TIMESERIES 5 minutes
+    ```    
+    To implement this in New Relic, you would go into the Alerts section, create a new NRQL alert condition, and paste this query into the condition setup. This setup allows New Relic to continuously evaluate the query and send an alert if the condition is met.
+
+3. **PagerDuty Integration**:
+   - Configure PagerDuty services and integration keys.
+   - Set up alerting rules in New Relic to trigger incidents in PagerDuty.
+
+4. **Verification**:
+   - Perform test transactions to verify alerts are triggered and logged correctly.
+   - Check that PagerDuty receives and escalates alerts as configured.
+
+## Post-Installation
+- Document the installation process and any relevant configurations.
+- Train the operations team on monitoring and responding to alerts.
+
+# Project Task 
+
+## Project Tasks
+- [ ] Database optimization for high insert rate (Partition Table, Add Index, etc).
+- [ ] Create Alert Service.
+- [ ] Installation of New Relic agents on servers.
+- [ ] Configuration of alert conditions in New Relic.
+- [ ] Setup of PagerDuty incident management.
+- [ ] Integration testing and validation.
+
+## Milestones
+- **Database Setup Completion**: `YYYY-MM-DD`
+- **Monitoring System Online**: `YYYY-MM-DD`
+- **Notification System Ready**: `YYYY-MM-DD`
+- **Project Completion**: `YYYY-MM-DD`
+
+## Dependencies
+- Successful database optimization before New Relic setup.
+- PagerDuty account must be active before integration.
+
+## Resources
+- Database Administrator
+- System Integrator
+- Network and Security Analyst
+- Engineer
