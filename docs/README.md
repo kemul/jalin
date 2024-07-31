@@ -5,7 +5,7 @@ Welcome to the project documentation.
 ## Table of Contents
 
 - [Mastered Skill](mastered-skill.md)
-- [Alert](alert.md)
+- [Alert](alert-main.md)
 - [Report](report.md)
 - [Read File](read-file.md)
 - [PL-SQL](pl-sql.md)
