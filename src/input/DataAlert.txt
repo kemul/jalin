@@ -1,0 +1,37 @@
+MDR;MP;7120;Bank Mandiri Online     ;Offline                                                        
+MDR;MP;8066;Bank Mandiri Online     ;Offline                                                        
+MDR;MP;8081;Bank Mandiri Online     ;Offline                                                        
+BTN;MP;8779;Bank Tabungan Negara    ;Offline 
+BNI;MP;2044;Bank Negara Indonesia   ;Offline                                                        
+BNI;MP;2020;Bank Negara Indonesia   ;Offline  
+MTP;MP;2023;Bank Mandiri Taspen     ;Offline                                                        
+KAS;MP;8137;BPD kalimantan selatan  ;Offline                                                        
+BCA;MP;7701;Bank Central Asia       ;Offline                                                        
+CMB;MP;9986;Bank CIMB Niaga         ;Offline                                                        
+NOB;MP;8171;Bank Nobu PR1           ;Offline                                                        
+TMY;MP;10200;TMY Participant RA1     ;Offline                                                                                                                
+BNI;MP;2045;BNI Participant A10     ;Offline                                                        
+BRI;MP;2032;Bank Rakyat Indonesia   ;Offline                                                        
+BRI;MP;2035;Bank Rakyat Indonesia   ;Offline                                                        
+BRI;MP;49273;Bank Rakyat Indonesia   ;Offline                                                       
+MDR;MP;8064;Bank Mandiri            ;Offline                                                        
+MDR;MP;2079;Bank Mandiri            ;Offline                                                        
+MDR;MP;9191;Bank Mandiri            ;Offline   
+BNI;MP;8006;Bank Negara Indonesia   ;Offline                                                        
+BNI;MP;9722;Bank Negara Indonesia   ;Offline                                                        
+MDR;MP;9511;Bank Mandiri            ;Offline                                                        
+MDR;MP;5222;Bank Mandiri            ;Offline                                                        
+MDR;MP;9097;Bank Mandiri            ;Offline                                                                                                            
+BIS;MP;2041;Bank BNI Syariah        ;Offline                                                        
+BIS;MP;2012;BIS Participant EA2     ;Offline                                                        
+BSR;MP;2004;Bank BRI Syariah        ;Offline                                                        
+BSR;MP;2123;BSR Participant EB3     ;Offline                                                        
+BSR;MP;8912;BSR Participant EB5     ;Offline                                                                                                        
+FIN;MP;8175;Biller Finnet IBTF      ;Offline                                                        
+REN;MP;9903;REN - eChannel Platform ;Offline                                                        
+ALT;MP;6063;IBFT-Alto Segmen 1      ;Offline                                                        
+ALT;MP;9203;IBFT-Alto Segmen 2      ;Offline                                                        
+ALT;MP;9204;IBFT-Alto Segmen 2      ;Offline                                                        
+ALT;MP;9206;IBFT-Alto Segmen 3      ;Offline                                                        
+RTS;MP;6064;IBFT-Switching Rintis   ;Offline                                                        
+SAT;MP;1112;IBFT-Switching Artajasa ;Offline                                                        

@@ -1,0 +1,7 @@
+Selamat Siang Rekan Bank %s,
+
+Mohon bantuan untuk Sign on pada envi berikut :
+
+%s
+
+Terima Kasih

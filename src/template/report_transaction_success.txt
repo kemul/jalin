@@ -1,4 +1,4 @@
-KODE CLIENT : %s                    LAPORAN : TRANSAKSI PEMBAYARAN BERHASIL                               HAL     : 1
+KODE CLIENT : %s                    LAPORAN : TRANSAKSI PEMBAYARAN BERHASIL                               HAL     : %s
 KODE REPORT : %s                                                                                          TANGGAL : %s
 
 
@@ -7,6 +7,6 @@ TANGGAL TRANSAKSI     WAKTU TRANSAKSI     STATUS TRANSAKSI     NOMINAL TAGIHAN  
 
                                         * * * SUMMARY TOTAL * * *
                                         TOTAL TRANSAKSI         = %d
-                                        TOTAL NOMINAL TAGIHAN   = RP %.3f
-                                        TOTAL ADMIN FEE         = RP %.3f
-                                        TOTAL NOMINAL TRANSAKSI = RP %.3f
+                                        TOTAL NOMINAL TAGIHAN   = RP %s
+                                        TOTAL ADMIN FEE         = RP %s
+                                        TOTAL NOMINAL TRANSAKSI = RP %s
