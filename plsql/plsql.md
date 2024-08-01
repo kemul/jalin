@@ -1,3 +1,5 @@
+## 5.A Connection Between Each Table
+
 ```mermaid
 erDiagram
     TABLE_A {
@@ -36,10 +38,9 @@ erDiagram
 
 ```
 
-# MySQL Stored Procedure Visualization
+## 5.A Create Procedure using MySQL (insert_data_to_table_c)
 
-## Procedure: insert_data_to_table_c
-
+### Graph Flow for insert_data_to_table_c
 ```mermaid
 graph TD
     A[Open cursor for table A] --> B[Loop through table A]
@@ -63,7 +64,8 @@ graph TD
         K
     end
 ```
-Database – PL/SQL
+
+### Procedure for insert_data_to_table_c (PL/SQL_)
 ```sql
 CREATE PROCEDURE jalin.insert_data_to_table_c()
 BEGIN
