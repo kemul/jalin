@@ -81,10 +81,6 @@ _*Notes_ : process cron can be improved by create script
 
 ## Task:
 
-* Design the tables needed      --> Point 3.1
-* Using oracle/mysql database   -->
-* This report has template.
-
 ### Task: 3.1 Design Table
 
 | Column Name        | Data Type         | Constraints                     | Description                               |
@@ -314,7 +310,7 @@ Configuration Detail
 
 _Java Code Notes_ : 
 - Java Code can be improve with implement Clean Architecture
-- Implemented with framework
+- Implemented with framework (ex, Spring) 
 
 ### How to Run
 1. Clone project from this repo https://github.com/kemul/jalin
