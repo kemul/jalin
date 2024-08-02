@@ -313,7 +313,7 @@ Configuration Detail
 
 _Java Code Notes_ : 
 - Java Code can be improve with implement Clean Architecture
-- Implemented with framework
+- Implemented with framework (ex, Spring) 
 
 ### How to Run
 1. Clone project from this repo https://github.com/kemul/jalin
