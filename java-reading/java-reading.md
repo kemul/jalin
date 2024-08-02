@@ -44,30 +44,9 @@ The generate method of WriteData is called with the determined date (rDate) as a
 
 The last one is error handling of any Exception 
 
-Case 1
----
-Input
-```
-java ExtractData
-```
-
-Output
-```terminal
-Aug 01, 2024 4:17:27 PM ExtractData processDate
-INFO: Start
-Data generated for date: 2024-07-30
-```
-
-Case 2
----
-Input
-```
-java ExtractData "2024-08-01"
-```
-
-Output
-```terminal
-Aug 01, 2024 4:15:28 PM ExtractData processDate
-INFO: Start
-Data generated for date: 2024-08-01
-```
+### Scenario
+| Scenario | Input                                             | Process                                                                                                                         | Output                                 |
+|----------|---------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------|
+| 1        | Command-line argument: `2024-08-01`               | 1. Checks if an argument is provided and is not empty. <br> 2. Sets `sDate` to `args[0]` which is `2024-08-01`.                 | `Generating data for date: 2024-08-01` |
+| 2        | No command-line argument. <br> Property: `rDate=2024-07-31` | 1. No argument provided. <br> 2. Checks properties and finds `rDate` set to `2024-07-31`. <br> 3. Sets `sDate` to `2024-07-31`. | `Generating data for date: 2024-07-31` |
+| 3        | No command-line argument. <br> No property `rDate` | 1. No argument provided. <br> 2. Checks properties and does not find `rDate`. <br> 3. Defaults to the previous day's date (`yyyy-MM-dd`). | `Generating data for date: 2024-08-01` |
