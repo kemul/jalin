@@ -1,0 +1,15 @@
+Selamat Siang Rekan Bank MDR,
+
+Mohon bantuan untuk Sign on pada envi berikut :
+
+- Envi MP Port 7120 terpantau Offline
+- Envi MP Port 8066 terpantau Offline
+- Envi MP Port 8081 terpantau Offline
+- Envi MP Port 8064 terpantau Offline
+- Envi MP Port 2079 terpantau Offline
+- Envi MP Port 9191 terpantau Offline
+- Envi MP Port 9511 terpantau Offline
+- Envi MP Port 5222 terpantau Offline
+- Envi MP Port 9097 terpantau Offline
+
+Terima Kasih

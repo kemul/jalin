@@ -62,9 +62,6 @@ Content Configuration
 ```
 # whitelist client for Report
 whitelistClient=JLN
-
-# whitelist Bank for Notify System Down
-whitelistBankCodes=MDR
 ```
 
 ### Conditions: 4. The program only run once a day by scheduler.

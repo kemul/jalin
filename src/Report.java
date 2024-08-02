@@ -23,7 +23,7 @@ public class Report {
          * configFilePath : application configuration (ex, whitelistClient,
          * whitelistBank)
          * databaseConfigFilePath : MySql DB Configuration
-         * template : template message for report Client and alert Bank
+         * template : template message for Report Client
          * output : result report location for report Client
          */
         String configFilePath = "config/config.properties";
@@ -58,8 +58,7 @@ public class Report {
             return;
         }
 
-        // Whitelist parameter to choose whose client to be generated (could be 1 or
-        // more)
+        // Whitelist client to be generated , comma separated
         String whitelistClient = appProperties.getProperty("whitelistClient");
         List<String> clientCodes = Arrays.asList(whitelistClient.split(","));
 
