@@ -1,14 +1,5 @@
-# JALIN - Project Alert System
+# 2 Analysis - Jalin Alert : Elaborate your way to work out the alert.
 
-Analysis - Elaborate your way to work out the alert.
-```
-Given a transactional table that has 300 million of records and insert rate of 40 tps (transaction/second). The transactions status varied from success, failed, decline, and suspect.
-
-There is condition of alert:
-- within 5 minutes, if the sum of failed transactions > 100 records, send alert to officer on duty that tells 
-
-- ex: there are 120 failed transactions between now and (now-5 minutes) by telegram automatically.
-```
 ## Table of Contents
 - [Project Overview](#project-overview)
     - [System Overview](#project-overview)
