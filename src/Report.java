@@ -1,9 +1,8 @@
-
-// Report.java
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import java.util.Properties;
 import java.io.FileInputStream;
 import java.io.FileWriter;
@@ -14,22 +13,37 @@ import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Report {
 
     public static void run() {
         /*
-         * database : config related to database connection
-         * template : template message for notify
-         * output : path result report location
-         */ String configFilePath = "config/database.properties";
+         * configFilePath : application configuration (ex, whitelistClient,
+         * whitelistBank)
+         * databaseConfigFilePath : MySql DB Configuration
+         * template : template message for report Client and alert Bank
+         * output : result report location for report Client
+         */
+        String configFilePath = "config/config.properties";
+        String databaseConfigFilePath = "config/database.properties";
         String formatFilePath = "template/report_transaction_success.txt";
         String outputFilePath = "output/report_transaction_success.txt";
 
-        // Load the Config file
-        Properties properties = new Properties();
+        // Load application config file
+        Properties appProperties = new Properties();
         try (FileInputStream input = new FileInputStream(configFilePath)) {
-            properties.load(input);
+            appProperties.load(input);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        // Load database config file
+        Properties dbProperties = new Properties();
+        try (FileInputStream input = new FileInputStream(databaseConfigFilePath)) {
+            dbProperties.load(input);
         } catch (IOException e) {
             e.printStackTrace();
             return;
@@ -44,32 +58,38 @@ public class Report {
             return;
         }
 
-        // Get the database connection details from the properties file
-        String dbUrl = properties.getProperty("db.url");
-        String dbUser = properties.getProperty("db.user");
-        String dbPassword = properties.getProperty("db.password");
+        // Whitelist parameter to choose whose client to be generated (could be 1 or
+        // more)
+        String whitelistClient = appProperties.getProperty("whitelistClient");
+        List<String> clientCodes = Arrays.asList(whitelistClient.split(","));
+
+        // Get the database connection details from the database config file
+        String dbUrl = dbProperties.getProperty("db.url");
+        String dbUser = dbProperties.getProperty("db.user");
+        String dbPassword = dbProperties.getProperty("db.password");
 
         try {
-            // Establish connection to the database
             Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
-            // Create a statement object to perform a query
             Statement stmt = conn.createStatement();
 
-            // Execute a query and get a result set
-            String query = "SELECT * FROM transactions";
+            // Fetch only whitelist by configuration
+            // Limit can be improve depend on requirement report and Data Size
+            String clientCodesInClause = clientCodes.stream()
+                    .map(code -> "'" + code + "'")
+                    .collect(Collectors.joining(", "));
+            String query = "SELECT * FROM transactions WHERE client_code IN (" + clientCodesInClause + ") LIMIT 10";
             ResultSet rs = stmt.executeQuery(query);
 
-            // Variables to calculate summary totals
+            // Kalkulasi totals
             int totalTransactions = 0;
             double totalNominalTagihan = 0;
             double totalAdminFee = 0;
             double totalNominalTransaksi = 0;
 
-            // StringBuilder to accumulate transaction details
+            // Get Transaction details
             StringBuilder transactionDetails = new StringBuilder();
 
-            // Iterate through the result set and accumulate the results
             while (rs.next()) {
                 String transactionDate = formatDate(rs.getDate("transaction_date"));
                 String transactionTime = rs.getTime("transaction_time").toString();
@@ -78,24 +98,21 @@ public class Report {
                 double adminFee = rs.getDouble("admin_fee");
                 double nominalTransaksi = rs.getDouble("nominal_transaksi");
 
-                // Accumulate transaction details
                 transactionDetails.append(String.format("%-20s %-20s %-20s %-20s %-10s %-20s\n",
                         transactionDate, transactionTime, status,
                         formatCurrency(nominalTagihan), formatCurrency(adminFee), formatCurrency(nominalTransaksi)));
 
-                // Update summary totals
                 totalTransactions++;
                 totalNominalTagihan += nominalTagihan;
                 totalAdminFee += adminFee;
                 totalNominalTransaksi += nominalTransaksi;
             }
 
-            // Close the result set, statement, and connection
             rs.close();
             stmt.close();
             conn.close();
 
-            // Generate the formatted report using the loaded format
+            // Generate report with formated template
             String reportContent = String.format(
                     format,
                     "JLN", "1", "ACT-01", "2023-08-01", transactionDetails.toString(),

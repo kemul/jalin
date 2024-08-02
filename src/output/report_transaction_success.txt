@@ -5,11 +5,10 @@ KODE REPORT : ACT-01                                                            
 TANGGAL TRANSAKSI     WAKTU TRANSAKSI     STATUS TRANSAKSI     NOMINAL TAGIHAN     ADMIN     NOMINAL TRANSAKSI     
 31072024             08:00:00             BERHASIL             100.000,000          5.000,000  105.000,000         
 31072024             09:00:00             BERHASIL             150.000,000          7.500,000  157.500,000         
-31072024             10:00:00             BERHASIL             200.000,000          10.000,000 210.000,000         
 
 
                                         * * * SUMMARY TOTAL * * *
-                                        TOTAL TRANSAKSI         = 3
-                                        TOTAL NOMINAL TAGIHAN   = RP 450.000,000
-                                        TOTAL ADMIN FEE         = RP 22.500,000
-                                        TOTAL NOMINAL TRANSAKSI = RP 472.500,000
+                                        TOTAL TRANSAKSI         = 2
+                                        TOTAL NOMINAL TAGIHAN   = RP 250.000,000
+                                        TOTAL ADMIN FEE         = RP 12.500,000
+                                        TOTAL NOMINAL TRANSAKSI = RP 262.500,000
