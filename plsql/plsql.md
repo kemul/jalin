@@ -38,7 +38,7 @@ erDiagram
 
 ```
 
-## 5.A Create Procedure using MySQL (insert_data_to_table_c)
+## 5.B Create Procedure using MySQL (insert_data_to_table_c)
 
 ### Graph Flow for insert_data_to_table_c
 ```mermaid
