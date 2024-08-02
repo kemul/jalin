@@ -84,10 +84,6 @@ _*Notes_ : process cron can be improved by create script
 
 ## Task:
 
-* Design the tables needed      --> Point 3.1
-* Using oracle/mysql database   -->
-* This report has template.
-
 ### Task: 3.1 Design Table
 
 | Column Name        | Data Type         | Constraints                     | Description                               |
