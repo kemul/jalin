@@ -34,8 +34,8 @@ Input file in this path
 ```
 - Read File DataAlert.txt
 ```java
-
 import java.io.*;
+import java.nio.channels.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
@@ -57,12 +57,12 @@ public class ReadFile {
         String templateFilePath = rootDirectory + "template/report_environement_down.txt";
         String outputDirectory = rootDirectory + "output/";
 
-        // Read whitelist bank codes from configuration file, example BNI, MDR,
-        // comma separated
+        // Read whitelist bank codes from configuration file, 
+        // example BNI, MDR etc, content ini dengan comma separated
         List<String> whitelistBankCodes = readWhitelistBankCodes(configFilePath);
 
-        // Read and process the input file
-        List<String> lines = readFile(inputFilePath);
+        // Read and process the input file, implement locking to avoid race condition 
+        List<String> lines = readFileWithLock(inputFilePath);
         Map<String, List<String>> alerts = parseData(lines, whitelistBankCodes);
 
         // Read the template file. ex report_environement_down.txt
@@ -80,7 +80,7 @@ public class ReadFile {
             writeFile(outputFilePath, outputMessage);
 
             // TODO this file can be sent to External institution Channel, ex : Email,
-            // Whatsapp, Telegram SMS dll
+            // Whatsapp, Telegram SMS dll trough Notif Service
         }
     }
 
@@ -97,13 +97,21 @@ public class ReadFile {
         }
     }
 
-    private static List<String> readFile(String filePath) {
-        try {
-            return Files.readAllLines(Paths.get(filePath));
+    private static List<String> readFileWithLock(String filePath) {
+        List<String> lines = new ArrayList<>();
+        try (RandomAccessFile raf = new RandomAccessFile(filePath, "r");
+                FileChannel channel = raf.getChannel();
+                FileLock lock = channel.lock(0, Long.MAX_VALUE, true)) {
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Channels.newInputStream(channel)));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
-            return Collections.emptyList();
         }
+        return lines;
     }
 
     private static String readTemplate(String filePath) {
@@ -146,6 +154,7 @@ public class ReadFile {
         }
     }
 }
+
 ```
 
 - Main Class

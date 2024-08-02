@@ -44,7 +44,7 @@ public class ReadFile {
             writeFile(outputFilePath, outputMessage);
 
             // TODO this file can be sent to External institution Channel, ex : Email,
-            // Whatsapp, Telegram SMS dll
+            // Whatsapp, Telegram SMS dll trough Notif Service
         }
     }
 
