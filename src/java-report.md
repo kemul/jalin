@@ -18,7 +18,7 @@ src
 ├── template                                <template report>
 │   ├── report_environement_down.txt            
 │   └── report_transaction_success.txt
-├── DataAlert.java                          <Task No 3>    
+├── ReadFile.java                          <Task No 3>    
 ├── Main.java
 └── Report.java                             <Task No 4>    
 ```
@@ -290,8 +290,8 @@ public class Main {
         String processType = args[0];
 
         switch (processType) {
-            case "dataAlert":
-                DataAlert.run();
+            case "readFile":
+                ReadFile.run();
                 break;
             case "transactionReport":
                 Report.run();
