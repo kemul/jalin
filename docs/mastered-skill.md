@@ -1,4 +1,4 @@
-### My Most Mastered Skill
+### 1. Most Mastered Skill
 
 * **Adaptability** in diverse situations, which is strengthened by over ten years of experience in **software development** and **system architecture**. This ability allows me to respond quickly and effectively to dynamic changes.
 
