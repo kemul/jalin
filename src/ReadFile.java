@@ -1,4 +1,5 @@
 import java.io.*;
+import java.nio.channels.*;
 import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
@@ -25,7 +26,7 @@ public class ReadFile {
         List<String> whitelistBankCodes = readWhitelistBankCodes(configFilePath);
 
         // Read and process the input file
-        List<String> lines = readFile(inputFilePath);
+        List<String> lines = readFileWithLock(inputFilePath);
         Map<String, List<String>> alerts = parseData(lines, whitelistBankCodes);
 
         // Read the template file. ex report_environement_down.txt
@@ -60,13 +61,21 @@ public class ReadFile {
         }
     }
 
-    private static List<String> readFile(String filePath) {
-        try {
-            return Files.readAllLines(Paths.get(filePath));
+    private static List<String> readFileWithLock(String filePath) {
+        List<String> lines = new ArrayList<>();
+        try (RandomAccessFile raf = new RandomAccessFile(filePath, "r");
+                FileChannel channel = raf.getChannel();
+                FileLock lock = channel.lock(0, Long.MAX_VALUE, true)) {
+
+            BufferedReader reader = new BufferedReader(new InputStreamReader(Channels.newInputStream(channel)));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                lines.add(line);
+            }
         } catch (IOException e) {
             e.printStackTrace();
-            return Collections.emptyList();
         }
+        return lines;
     }
 
     private static String readTemplate(String filePath) {
