@@ -31,18 +31,15 @@ This system will specifically track transaction failures and automatically send 
 
 The system requires real-time data processing capabilities, possibly utilizing efficient query mechanisms or a stream processing framework to evaluate transactions continuously and trigger alerts based on predefined conditions to ensure timely notification to the officer on duty.
 
-
-## System Requirements
-- **Scalable Database Infrastructure**: Capable of handling high transaction volumes with robust performance.
-- **Real-Time Monitoring and Analysis**: monitor transactions and manage alerts.
-- **Flexible Notification System**: notification system capable of sending alerts through configured channels.
-
 ### Workflow:
 1. **Transaction Processing**: Transactions are processed and logged into the database.
 2. **Monitoring**: New Relic monitors the transactions in real-time.
 3. **Alert Evaluation**: System evaluates if failed transactions exceed 100 within a 5-minute window.
 4. **Notification**: If the condition is met, then triggers an incident on OnDuty PIC.
 
+## System Requirements
+- **Real-Time Monitoring and Analysis**: monitor transactions and manage alerts.
+- **Flexible Notification System**: notification system capable of sending alerts through configured channels.
 
 ### Alert Mechanism
 - **Condition**: More than 100 failed transactions within any 5-minute window.
@@ -69,7 +66,16 @@ graph LR
 - **Notification System**: managing and sends notif to designated recipients based on alert conditions.
 
 ## Sequence Diagram
-### Option 1
+There is 2 propose solution for this requirement 
+1. Creating a Custom Service for Notifications and Alerts
+Build a dedicated service to manage all notifications and alerts within your system. This service will handle different types of alerts, determine who should receive them, and manage how they are delivered.
+
+2. Using Platforms Like New Relic and PagerDuty
+
+* New Relic:New Relic is a platform for monitoring and managing software performance. 
+* PagerDuty: PagerDuty is a platform for incident management. It integrates with monitoring tools to alert the right people when issues occur, ensuring quick response and resolution.
+
+### Option 1 ( Custome Service)
 ```mermaid 
 sequenceDiagram
     participant User
@@ -99,7 +105,8 @@ sequenceDiagram
 * Database: Stores transaction records and responds to queries about transaction statuses.
 * Alert Service: Periodically checks the number of failed transactions directly from the database and decides whether to trigger an alert.
 * Telegram: Used to directly communicate with the officer on duty when an alert is triggered based on the predefined conditions.
-### Option 2 (Proposed)
+
+### Option 2 (Elaborate PagerDuty and Pagerduty)
 ```mermaid
 sequenceDiagram
     participant User
@@ -135,6 +142,7 @@ sequenceDiagram
    - If the number of failed transactions exceeds 100 within a 5-minute window, New Relic triggers an incident in PagerDuty.
    - PagerDuty then notifies the on-call personnel to respond to the alert.
    - If the threshold is not met, New Relic continues its monitoring process.
+
 
 Notes : Option 2 more scalable if need to extend another channel such as Whatsapp, etc
 
