@@ -10,8 +10,8 @@ public class Main {
         String processType = args[0];
 
         switch (processType) {
-            case "dataAlert":
-                DataAlert.run();
+            case "readFile":
+                ReadFile.run();
                 break;
             case "transactionReport":
                 Report.run();

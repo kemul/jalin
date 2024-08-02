@@ -3,7 +3,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class DataAlert {
+public class ReadFile {
 
     public static void run() {
         String rootDirectory = "";

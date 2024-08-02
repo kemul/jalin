@@ -19,7 +19,7 @@ src
 ├── template                                <template report>
 │   ├── report_environement_down.txt            
 │   └── report_transaction_success.txt
-├── DataAlert.java                          <Task No 3>    
+├── ReadFile.java                          <Task No 3>    
 ├── Main.java
 └── Report.java                             <Task No 4>    
 ```
@@ -40,7 +40,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.stream.*;
 
-public class DataAlert {
+public class ReadFile {
 
     public static void run() {
         String rootDirectory = "";
@@ -161,8 +161,8 @@ public class Main {
         String processType = args[0];
 
         switch (processType) {
-            case "dataAlert":
-                DataAlert.run();
+            case "readFile":
+                ReadFile.run();
                 break;
             case "transactionReport":
                 Report.run();
@@ -191,7 +191,7 @@ _Java Code Notes_ :
     ```
 4. Run Program 
     ```
-    java -jar Jalin.jar dataAlert
+    java -jar Jalin.jar readFile
     ```
 
 ### Task: 2 Create output message and send to its institutions.
@@ -242,5 +242,5 @@ crontab -e
 
 add new cron transactionReport at 3 AM
 ```
-0 2 * * * cd /path/to/your/application/src && java -cp .:lib/mysql-connector-java-8.0.26.jar Main dataAlert
+0 2 * * * cd /path/to/your/application/src && java -cp .:lib/mysql-connector-java-8.0.26.jar Main readFile
 ```
