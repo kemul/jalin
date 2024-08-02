@@ -143,8 +143,8 @@ sequenceDiagram
    - PagerDuty then notifies the on-call personnel to respond to the alert.
    - If the threshold is not met, New Relic continues its monitoring process.
 
-
-Notes : Option 2 more scalable if need to extend another channel such as Whatsapp, etc
+![image](https://github.com/user-attachments/assets/edee6ff6-5d35-4135-b73e-ea3675a99ede)
+Notes : Both options have their own strengths and weaknesses, and the choice depends on factors like budget, development resources, and specific business needs.
 
 # Installation Instructions
 
