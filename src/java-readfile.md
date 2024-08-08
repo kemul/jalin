@@ -205,11 +205,28 @@ _Java Code Notes_ :
 
 ### Task: 2 Create output message and send to its institutions.
 Output file will perform at `console output` and `file` format with this content, this content can be sent to institution 
-    
+
+Template path
+```
+── template                                <template report>
+│   ├── report_environement_down.txt         
+```
+
+Output path
 ```
 ├── output                                  <report output>
 │   └── report_system_down_MDR.txt
 │   └── report_system_down_BNI.txt
+```
+Preview Template
+```
+Selamat Siang Rekan Bank %s,
+
+Mohon bantuan untuk Sign on pada envi berikut :
+
+%s
+
+Terima Kasih
 ```
 
 Preview File Output
