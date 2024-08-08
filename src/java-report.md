@@ -198,7 +198,7 @@ public class Report {
             String clientCodesInClause = clientCodes.stream()
                     .map(code -> "'" + code + "'")
                     .collect(Collectors.joining(", "));
-            String query = "SELECT * FROM transactions WHERE client_code IN (" + clientCodesInClause + ") LIMIT 10";
+            String query = "SELECT * FROM transactions WHERE client_code IN (" + clientCodesInClause + ") and status = "SUCCESS" LIMIT 10";
             ResultSet rs = stmt.executeQuery(query);
 
             // Kalkulasi totals
