@@ -97,7 +97,7 @@ sequenceDiagram
 * Alert Service: Periodically checks the number of failed transactions directly from the database and decides whether to trigger an alert.
 * Telegram: Used to directly communicate with the officer on duty when an alert is triggered based on the predefined conditions.
 
-### Option 2 (Elaborate PagerDuty and Pagerduty)
+### Option 2 (Elaborate NewRelic and Pagerduty)
 ```mermaid
 sequenceDiagram
     participant User
